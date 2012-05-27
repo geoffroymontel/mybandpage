@@ -10,6 +10,10 @@ group :development do
   gem 'guard-livereload'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :production do
   gem 'therubyracer-heroku', :platform => :ruby
   gem 'pg'

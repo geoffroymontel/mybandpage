@@ -1,4 +1,7 @@
 Mybandpage::Application.routes.draw do
+  get "facebook_page_news/index"
+  root :to => 'facebook_page_news#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

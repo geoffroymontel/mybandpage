@@ -1,4 +1,7 @@
 Mybandpage::Application.configure do
+  # prevent stdout caching with foreman / thin
+  STDOUT.sync = true
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

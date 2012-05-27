@@ -15,6 +15,8 @@ cd mybandpage
 bundle install --without production
 ```
 
+
+
 ## Pushing to Heroku
 
 ```
