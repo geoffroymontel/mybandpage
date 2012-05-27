@@ -24,15 +24,23 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
 end
 
+# use jquery
 gem 'jquery-rails'
+
+# simple http requests
 gem 'faraday'
 gem 'multi_json'
 gem 'active_attr'
+
+# facebook
+gem 'fb_graph'
+
+# use thin
+gem 'thin'
+gem 'foreman'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -49,6 +57,3 @@ gem 'active_attr'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-# use thin
-gem 'thin'
-gem 'foreman'

@@ -25,7 +25,7 @@ FB_APP_SECRET=<your facebook app secret>
 
 ### run tests
 ```
-bundle exec rake tests
+bundle exec rspec -c --format doc
 ```
 
 ## Pushing to Heroku
@@ -33,6 +33,7 @@ bundle exec rake tests
 ```
 git push heroku master
 heroku rake db:migrate
+heroku open
 ```
 
 ## Some notes
@@ -48,6 +49,25 @@ https://graph.facebook.com/oauth/access_token?client_id=ENV[FB_APP_ID]&client_se
 ```ruby
 https://graph.facebook.com/page_id/feed?access_token=xxxx
 ```
+
+### fb_graph usage
+```ruby
+page = FbGraph::Page.new('brocolirecords', :access_token => FacebookOauthEndpoint.token)
+# feed
+feed = page.feed
+# 11th message
+page.feed[10].message
+# link
+page.feed[2].link
+# image
+if page.feed[2].type == "photo" then
+  image_id = page.feed[2].graph_object_id
+  photo = FbGraph::Photo.new(image_id).fetch
+  photo_url = photo.images[0].source
+end
+
+```
+
 
 ## Author
 [Geoffroy Montel](https://github.com/geoffroymontel)
