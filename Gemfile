@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 group :development do
   gem 'sqlite3'
+  gem 'guard-livereload'
 end
 
 group :production do
@@ -43,3 +44,7 @@ gem 'active_attr'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# use thin
+gem 'thin'
+gem 'foreman'
