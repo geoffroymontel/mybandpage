@@ -9,13 +9,24 @@ Trying to make easier to set up a band page with no kind of backoffice :
 
 ## Installation
 
+### get repository
 ```
 git clone ...
 cd mybandpage
 bundle install --without production
 ```
 
+### create your .env file 
+Create a `.env` file with your Facebook credentials
+```
+FB_APP_ID=<your facebook app id>
+FB_APP_SECRET=<your facebook app secret>
+```
 
+### run tests
+```
+bundle exec rake tests
+```
 
 ## Pushing to Heroku
 

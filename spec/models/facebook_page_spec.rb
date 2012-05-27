@@ -21,4 +21,17 @@ describe FacebookPage do
     end
   end
 
+  describe "#token" do
+    it "should return a string" do
+      fb = FacebookPage.new
+      fb.token.should be_a_kind_of(String)
+    end
+
+    it "should return the same token when called a second time" do
+      fb = FacebookPage.new
+      token = fb.token
+      fb.token.should == token
+    end
+  end
+
 end

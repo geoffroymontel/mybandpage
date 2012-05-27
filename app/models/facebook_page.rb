@@ -8,10 +8,12 @@ class FacebookPage
     attr_accessor :app_secret
   end
 
-  def self.token
+  def token
     return @token unless @token.nil?
 
     connection = Faraday.new(:url => 'https://graph.facebook.com')
     response = connection.get "oauth/access_token?client_id=#{FacebookPage::app_id}&client_secret=#{FacebookPage::app_secret}&grant_type=client_credentials"
-  end  
+    @token = response.body
+  end
+
 end
