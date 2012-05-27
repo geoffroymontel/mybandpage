@@ -24,7 +24,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'less-rails-bootstrap'
 gem 'faraday'
 gem 'multi_json'
 gem 'active_attr'
