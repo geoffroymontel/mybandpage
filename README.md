@@ -5,7 +5,15 @@ Trying to make easier to set up a band page with no kind of backoffice :
 - news will be retrieved from Facebook  
 - biography & discography will be retrieved from discogs  
 - music videos from youtube  
-- music audio clips from soundcloud  
+- music audio clips from soundcloud 
+
+## Installation
+
+```
+git clone
+cd mybandpage
+bundle install --without production
+```
 
 ## Some notes
 
