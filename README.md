@@ -13,6 +13,8 @@ Trying to make easier to set up a band page with no kind of backoffice :
 git clone
 cd mybandpage
 bundle install --without production
+git push heroku master
+heroku rake db:migrate
 ```
 
 ## Some notes
