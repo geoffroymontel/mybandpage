@@ -80,6 +80,7 @@ end
 The RoR Tutorial likes the 'bootstrap-sass' gem.
 Create the file : `app/assets/stylesheets/custom.css.scss`
 ```scss
+@import "bootstrap";
 @import "bootstrap-responsive";
 ```
 
