@@ -2,11 +2,8 @@ require 'faraday'
 require 'multi_json'
 
 class FacebookOauthEndpoint
-  class << self
-    # define class variables
-    attr_accessor :app_id
-    attr_accessor :app_secret
-  end
+  cattr_accessor :app_id
+  cattr_accessor :app_secret
 
   @@token = nil
 

@@ -11,12 +11,11 @@ Trying to make easier to set up a band page with no kind of backoffice :
 
 ### get repository
 ```
-git clone ...
 cd mybandpage
 bundle install --without production
 ```
 
-### create your .env file 
+### set up your env variables 
 Create a `.env` file with your Facebook credentials
 ```
 FB_APP_ID=<your facebook app id>
@@ -26,6 +25,15 @@ FB_APP_SECRET=<your facebook app secret>
 ### run tests
 ```
 bundle exec rspec -c --format doc
+```
+
+## Heroku
+
+### Set up heroku
+Push the vars on heroku
+```
+heroku config:add FB_APP_ID
+heroku config:add FB_APP_SECRET
 ```
 
 ## Pushing to Heroku
@@ -66,6 +74,13 @@ if page.feed[2].type == "photo" then
   photo_url = photo.images[0].source
 end
 
+```
+
+## Twitter Bootstrap
+The RoR Tutorial likes the 'bootstrap-sass' gem.
+Create the file : `app/assets/stylesheets/custom.css.scss`
+```scss
+@import "bootstrap-responsive";
 ```
 
 
