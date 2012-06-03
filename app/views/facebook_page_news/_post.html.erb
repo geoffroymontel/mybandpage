@@ -1,6 +1,42 @@
 <div class="row">
-  <div class="span2"><%= post.created_time.day %> / <%= post.created_time.month %> / <%= post.created_time.year %></div>
-  <div class="span10"><%= post.message %></div>
+  <div class="span2"><p><%= "%02d" % post.created_time.day %> / <%= "%02d" % post.created_time.month %> / <%= "%02d" % post.created_time.year %></p></div>
+  <div class="span10">
+    <% unless post.message.nil? or post.message.chomp.empty? then %>
+    <p>
+      <% post.message.chomp.each_line do |line| %>
+        <%= line %><br/>
+      <% end %>
+    </p>
+    <% end %>
+
+    <% if post.type == "photo" and !post.graph_object_id.nil? then
+        image_id = post.graph_object_id
+        photo = FbGraph::Photo.new(image_id).fetch
+        photo_url = photo.images[0].source
+    %>
+    <p>
+      <img src="<%= photo_url %>">
+    </p>
+    <% end %>
+
+    <% if post.type == "link" and !post.link.nil? then %>
+    <p>
+      <a href="<%= post.link %>"><%= post.link %></a>
+    </p>
+    <% end %>
+
+    <% if post.type == "video" and !post.source.nil? then %>
+    <div class="video-container">
+      <object width="100%">
+        <param name="movie" value="<%= post.source.gsub("&autoplay=1","") %>">
+        <param name="allowFullScreen" value="true">
+        <param name="allowscriptaccess" value="always">
+        <embed src="<%= post.source.gsub("&autoplay=1","") %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="100%">
+      </object>      
+    </div>
+
+    <% end %>
+  </div>
 </div>
 <!--
 <div class="row">
