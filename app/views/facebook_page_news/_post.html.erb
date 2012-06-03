@@ -10,12 +10,9 @@
     <% end %>
 
     <% if post.type == "photo" and !post.graph_object_id.nil? then
-        image_id = post.graph_object_id
-        photo = FbGraph::Photo.new(image_id).fetch
-        photo_url = photo.images[0].source
     %>
     <p>
-      <img src="<%= photo_url %>">
+      <img src="<%= fb_image_url_for post.graph_object_id %>">
     </p>
     <% end %>
 
@@ -28,10 +25,10 @@
     <% if post.type == "video" and !post.source.nil? then %>
     <div class="video-container">
       <object width="100%">
-        <param name="movie" value="<%= post.source.gsub("&autoplay=1","") %>">
+        <param name="movie" value="<%= clean_video_url post.source %>">
         <param name="allowFullScreen" value="true">
         <param name="allowscriptaccess" value="always">
-        <embed src="<%= post.source.gsub("&autoplay=1","") %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="100%">
+        <embed src="<%= clean_video_url post.source %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="100%">
       </object>      
     </div>
 
